@@ -6,10 +6,11 @@ import { CreateNodeComponent } from '../components/create-node/create-node.compo
 import { FormsModule } from '@angular/forms';
 import { NodeComponent } from '../components/node/node.component';
 import { CommonModule } from '@angular/common';
+import { NodeConnectorComponent } from '../components/node-connector/node-connector.component';
 
 @NgModule({
   declarations: [
-    AppComponent, CreateNodeComponent, NodeComponent
+    AppComponent, CreateNodeComponent, NodeComponent, NodeConnectorComponent
   ],
   imports: [
     CommonModule, BrowserModule, FormsModule

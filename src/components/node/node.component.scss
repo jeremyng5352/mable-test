@@ -26,32 +26,8 @@
     }
 }
 
-$node-connector-width: 25px;
 .node-child {
     display: flex;
-
-    .node-connector {
-        width: $node-connector-width;
-        height: $node-height;
-        position: relative;
-
-        .vertical, .horizontal {
-            border: $color-grey solid 0.5px;
-            position: absolute;
-           
-        }
-        
-        .vertical {
-            width: 1px;
-            height: $node-height / 2;
-            left: 50%;
-        }
-
-        .horizontal {
-            height: 1px;
-            width: $node-connector-width / 2;
-            top: 50%;
-            left: 50%;
-        }
-    }
+    
+   
 }

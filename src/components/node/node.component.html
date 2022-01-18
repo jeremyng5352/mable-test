@@ -5,7 +5,7 @@
       <img class="node-icon" src="../../assets/icons/file-regular.svg" alt="file icon" *ngSwitchCase="'file'">
     </ng-container>
     <div class="name">{{nodeModel.name}}</div>
-    <button class="with-icon" type="button" name="add child node" (click)="showCreateNode()" *ngIf="isOnHover">
+    <button class="with-icon" type="button" name="add child node" (click)="showCreateNode()" *ngIf="isOnHover && nodeModel.type !== 'file'">
       <img class="invert" src="../../assets/icons/plus-solid.svg" alt="cross icon">
     </button>
     <button class="with-icon" type="button" name="delete node" (click)="deleteNode(nodeModel.id)" *ngIf="isOnHover">
@@ -13,17 +13,11 @@
     </button>
   </section>
   <div class="node-child" *ngIf="isCreateNodeShown">
-    <div class="node-connector">
-      <div class="vertical"></div>
-      <div class="horizontal"></div>
-    </div>
+    <app-node-connector></app-node-connector>
     <app-create-node initialType="file" [parentId]="nodeModel.id" (cancelNodeCreation)="cancelNodeCreation()"></app-create-node>
   </div>
   <div class="node-child" *ngFor="let id of nodeModel.children">
-    <div class="node-connector">
-      <div class="vertical"></div>
-      <div class="horizontal"></div>
-    </div>
+    <app-node-connector></app-node-connector>
     <app-node [id]="id"></app-node>
   </div>
 </ng-container>
