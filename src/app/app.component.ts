@@ -6,8 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  showCreateNode: boolean = false;
 
   addFolderToRoot(): void {
-    
+    this.showCreateNode = true;
+  }
+
+  cancelNodeCreation(): void {
+    this.showCreateNode = false;
   }
 }

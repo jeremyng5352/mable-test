@@ -1,0 +1,54 @@
+@import '../../styles/shared-interfaces.scss';
+
+$icon-size: 20px;
+
+.create-node {
+    border-radius: 2px;
+    border: $color-black solid 1px;
+    width: fit-content;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 20px;
+        height: $icon-size;
+    }
+
+    input {
+        margin-left: 5px;
+        height: 22.5px;
+        border: 1px solid black;
+
+        &:focus {
+            border: $color-orange solid 1px;
+        }
+    }
+
+    button {
+        width: 25px;
+        height: 25px;
+        padding: 2px;
+        margin-left: 5px;
+        border-radius: 5px;
+
+        &.create {
+            background: $color-black;
+
+            img {
+                filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
+            }
+        }
+        
+        &.cancel {
+            background: $color-white;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}

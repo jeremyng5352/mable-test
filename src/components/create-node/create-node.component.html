@@ -1,0 +1,11 @@
+<div class="create-node">
+  <!-- <img src="../../assets/icons/file-regular.svg" alt="file icon"> -->
+  <img src="../../assets/icons/folder-open-regular.svg" alt="folder icon">
+  <input type="text" name="node name" autofocus [(ngModel)]="formValue" >
+  <button class="create" type="button" name="Confirm create" (click)="createNode()">
+    <img src="../../assets/icons/check-solid.svg" alt="tick icon">
+  </button>
+  <button class="cancel" type="button" name="Cancel create" (click)="cancel()">
+    <img src="../../assets/icons/times-solid.svg" alt="cross icon">
+  </button>
+</div>
