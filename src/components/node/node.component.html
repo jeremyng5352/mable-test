@@ -18,6 +18,6 @@
   </div>
   <div class="node-child" *ngFor="let id of nodeModel.children">
     <app-node-connector></app-node-connector>
-    <app-node [id]="id"></app-node>
+    <app-node [id]="id" [parentId]="nodeModel.id"></app-node>
   </div>
 </ng-container>
