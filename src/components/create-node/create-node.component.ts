@@ -12,7 +12,7 @@ export class CreateNodeComponent implements AfterViewInit {
   @Output() cancelNodeCreation = new EventEmitter<void>();
   @Input() parentId: NodeModel['id'] = '';
   @Input() initialType: NodeModel['type'] = 'folder';
-  formValue: string = ''; 
+  name: string = ''; 
 
   constructor(
     private nodeService: NodeService
@@ -23,8 +23,10 @@ export class CreateNodeComponent implements AfterViewInit {
   }
 
   createNewNode(): void {
-    if (this.formValue) {
-      !this.parentId ? this.nodeService.createNewBaseNode(this.formValue, this.initialType) : this.nodeService.createNewNode(this.formValue, this.initialType);
+    if (this.name) {
+      !this.parentId ?
+       this.nodeService.createNewBaseNode(this.name, this.initialType) : 
+       this.nodeService.createNewNodeForParent(this.name, this.initialType, this.parentId);
     }
     this.cancel();
   }

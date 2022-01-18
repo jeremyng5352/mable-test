@@ -4,3 +4,7 @@ export class NodeModel {
     children: NodeModel[];
     id: string;
 }
+
+export interface NodeStateModel extends Omit<NodeModel, 'children'> {
+    children: string[];
+}

@@ -3,7 +3,7 @@
     <img class="node-icon" src="../../assets/icons/folder-open-regular.svg" alt="folder icon" *ngSwitchCase="'folder'">
     <img class="node-icon" src="../../assets/icons/file-regular.svg" alt="file icon" *ngSwitchCase="'file'">
   </ng-container>
-  <input type="text" name="node name" #formInput [(ngModel)]="formValue">
+  <input type="text" name="node name" #formInput [(ngModel)]="name" (keyup.enter)="createNewNode()">
   <button class="create with-icon" type="button" name="Confirm create" (click)="createNewNode()">
     <img class="invert" src="../../assets/icons/check-solid.svg" alt="tick icon">
   </button>

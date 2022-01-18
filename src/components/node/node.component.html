@@ -1,4 +1,4 @@
-<ng-container *ngIf="nodeModel">
+<ng-container *ngIf="node$ | async as nodeModel">
   <section class="node" [ngClass]="{'active': isOnHover}" (mouseenter)="setOnHover(true)" (mouseleave)="setOnHover(false)">
     <ng-container [ngSwitch]="nodeModel.type">
       <img class="node-icon" src="../../assets/icons/folder-open-regular.svg" alt="folder icon" *ngSwitchCase="'folder'">
@@ -12,13 +12,18 @@
       <img class="invert" src="../../assets/icons/trash-solid.svg" alt="cross icon">
     </button>
   </section>
-  <section class="node-children">
-    <div class="node-child" *ngIf="isCreateNodeShown">
-      <div class="node-connector">
-        <div class="vertical"></div>
-        <div class="horizontal"></div>
-      </div>
-      <app-create-node  initialType="file"></app-create-node>
+  <div class="node-child" *ngIf="isCreateNodeShown">
+    <div class="node-connector">
+      <div class="vertical"></div>
+      <div class="horizontal"></div>
     </div>
-  </section>
+    <app-create-node initialType="file" [parentId]="nodeModel.id" (cancelNodeCreation)="cancelNodeCreation()"></app-create-node>
+  </div>
+  <div class="node-child" *ngFor="let id of nodeModel.children">
+    <div class="node-connector">
+      <div class="vertical"></div>
+      <div class="horizontal"></div>
+    </div>
+    <app-node [id]="id"></app-node>
+  </div>
 </ng-container>
