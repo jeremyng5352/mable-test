@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NodeService } from '../services/node.service';
+import { NodeModel } from '../interfaces/node.model';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,19 @@ import { NodeService } from '../services/node.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showCreateNode: boolean = false;
+  nodeIdentity = (index: number, node: NodeModel): string => {
+    return node ? node.id : `${index}`;
+  }
+  isCreateNodeShown: boolean = false;
   baseNodes$ = this.nodeService.baseNodes$;
 
   constructor(private nodeService: NodeService) {}
 
   addFolderToRoot(): void {
-    this.showCreateNode = true;
+    this.isCreateNodeShown = true;
   }
 
   cancelNodeCreation(): void {
-    this.showCreateNode = false;
+    this.isCreateNodeShown = false;
   }
 }

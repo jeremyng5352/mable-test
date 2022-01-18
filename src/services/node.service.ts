@@ -12,14 +12,20 @@ export class NodeService {
   constructor() { }
 
   createNewBaseNode(name: NodeModel['name'], type: NodeModel['type']): void {
-    console.log('createNewBaseNode');
     const newNode = this.createNewNode(name, type);
     const currentBaseNodes: NodeModel[] = this.baseNodes$.getValue();
     this.baseNodes$.next([...currentBaseNodes, newNode]);
   }
 
+  createNewNodeForParent(name: NodeModel['name'], type: NodeModel['type'], parentId: NodeModel['id']): void {
+    const newNode = this.createNewNode(name, type);
+    const parentNode = <NodeModel>this.nodeDictionary.get(parentId);
+    parentNode.children = [...parentNode?.children, newNode];
+    this.nodeDictionary.set(parentId, parentNode);
+    this.nodeDictionary.set(newNode.id, newNode);
+  }
+
   createNewNode(name: NodeModel['name'], type: NodeModel['type']): NodeModel {
-    console.log('createNewNode');
     const id = `${Math.random()}`;
     const newNode: NodeModel = {
       name,

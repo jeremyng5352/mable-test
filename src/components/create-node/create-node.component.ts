@@ -23,10 +23,9 @@ export class CreateNodeComponent implements AfterViewInit {
   }
 
   createNewNode(): void {
-    if (!this.formValue) {
-      return;
+    if (this.formValue) {
+      !this.parentId ? this.nodeService.createNewBaseNode(this.formValue, this.initialType) : this.nodeService.createNewNode(this.formValue, this.initialType);
     }
-    !this.parentId ? this.nodeService.createNewBaseNode(this.formValue, this.initialType) : this.nodeService.createNewNode(this.formValue, this.initialType);
     this.cancel();
   }
 

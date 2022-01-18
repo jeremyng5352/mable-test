@@ -3,8 +3,8 @@
     <section class="content">
       <button type="button" name="add folder to root" (click)="addFolderToRoot()">Add folder to root</button>
       <ng-container *ngIf="baseNodes$ | async as baseNodes">
-        <div *ngFor="let node of baseNodes">test</div>
+        <app-node  *ngFor="let node of baseNodes; trackBy:nodeIdentity" [nodeModel]="node"></app-node>
       </ng-container>
-      <app-create-node *ngIf="showCreateNode" (cancelNodeCreation)="cancelNodeCreation()"></app-create-node>
+      <app-create-node *ngIf="isCreateNodeShown" (cancelNodeCreation)="cancelNodeCreation()"></app-create-node>
     </section>
 </div>

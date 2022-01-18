@@ -1,0 +1,59 @@
+@import '../../styles/shared-interfaces.scss';
+
+.node {
+    display: flex;
+    align-items: center;
+    height: $node-height;
+    border: transparent solid 1px;
+    width: fit-content;
+    padding-right: 10px;
+
+    &.active {
+        @extend .with-border;
+    }
+
+    .node-icon {
+        margin: 0 5px;
+    }
+
+    .name {
+        border: transparent solid 1px;
+    }
+
+    button {
+        border-radius: 50%;
+        background: $color-black;
+    }
+}
+
+$node-connector-width: 25px;
+.node-children {
+    .node-child {
+        display: flex;
+
+        .node-connector {
+            width: $node-connector-width;
+            height: $node-height;
+            position: relative;
+
+            .vertical, .horizontal {
+                border: $color-grey solid 0.5px;
+                position: absolute;
+               
+            }
+            
+            .vertical {
+                width: 1px;
+                height: $node-height / 2;
+                left: 50%;
+            }
+
+            .horizontal {
+                height: 1px;
+                width: $node-connector-width / 2;
+                top: 50%;
+                left: 50%;
+            }
+        }
+    }
+}

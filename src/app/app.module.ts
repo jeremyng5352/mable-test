@@ -4,13 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CreateNodeComponent } from '../components/create-node/create-node.component';
 import { FormsModule } from '@angular/forms';
+import { NodeComponent } from '../components/node/node.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent, CreateNodeComponent
+    AppComponent, CreateNodeComponent, NodeComponent
   ],
   imports: [
-    BrowserModule, FormsModule
+    CommonModule, BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

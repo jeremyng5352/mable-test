@@ -1,4 +1,37 @@
+// colors
 $color-black: black;
 $color-white: white;
 $color-grey: grey;
 $color-orange: orange;
+
+// layouts
+$node-height: 40px;
+
+.node-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.with-border {
+    border-radius: 2px;
+    border: $color-black solid 1px;
+}
+
+img.invert {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(298deg) brightness(102%) contrast(102%);
+}
+
+button.with-icon {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 70%;
+        height: 70%;
+    }
+}

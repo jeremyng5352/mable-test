@@ -1,0 +1,24 @@
+<ng-container *ngIf="nodeModel">
+  <section class="node" [ngClass]="{'active': isOnHover}" (mouseenter)="setOnHover(true)" (mouseleave)="setOnHover(false)">
+    <ng-container [ngSwitch]="nodeModel.type">
+      <img class="node-icon" src="../../assets/icons/folder-open-regular.svg" alt="folder icon" *ngSwitchCase="'folder'">
+      <img class="node-icon" src="../../assets/icons/file-regular.svg" alt="file icon" *ngSwitchCase="'file'">
+    </ng-container>
+    <div class="name">{{nodeModel.name}}</div>
+    <button class="with-icon" type="button" name="add child node" (click)="showCreateNode()" *ngIf="isOnHover">
+      <img class="invert" src="../../assets/icons/plus-solid.svg" alt="cross icon">
+    </button>
+    <button class="with-icon" type="button" name="delete node" (click)="deleteNode(nodeModel.id)" *ngIf="isOnHover">
+      <img class="invert" src="../../assets/icons/trash-solid.svg" alt="cross icon">
+    </button>
+  </section>
+  <section class="node-children">
+    <div class="node-child" *ngIf="isCreateNodeShown">
+      <div class="node-connector">
+        <div class="vertical"></div>
+        <div class="horizontal"></div>
+      </div>
+      <app-create-node  initialType="file"></app-create-node>
+    </div>
+  </section>
+</ng-container>
