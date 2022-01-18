@@ -2,6 +2,9 @@
     <h1>Folder Structure</h1>
     <section class="content">
       <button type="button" name="add folder to root" (click)="addFolderToRoot()">Add folder to root</button>
+      <ng-container *ngIf="baseNodes$ | async as baseNodes">
+        <div *ngFor="let node of baseNodes">test</div>
+      </ng-container>
       <app-create-node *ngIf="showCreateNode" (cancelNodeCreation)="cancelNodeCreation()"></app-create-node>
     </section>
 </div>
